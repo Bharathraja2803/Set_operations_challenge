@@ -48,7 +48,7 @@ public class TaskData {
 		Set<Task> tasksSet = new HashSet<>();
 		String user = "ann,bob,carol".contains(owner.toLowerCase()) ? owner.toLowerCase() : null;
 		
-		String selectedList = switch (user) {
+		String selectedList = switch (owner.toLowerCase()) {
 		case "ann" -> AnnsTasks;
 		case "bob" -> BobsTasks;
 		case "carol" -> CarolsTasks;
@@ -56,7 +56,7 @@ public class TaskData {
 		};
 		
 		for (String line : selectedList.split("\n")) {
-			String [] data = line.split(" ");
+			String [] data = line.split(",");
 			Arrays.asList(data).replaceAll(String::trim);
 			
 			Status status = (data.length <= 3) ? Status.INQUEUE : Status.valueOf(data[3].toUpperCase().replaceAll(" ", ""));
