@@ -4,16 +4,16 @@ import java.util.Objects;
 
 enum Priority {HIGH, MEDIUM, LOW}
 
-enum Staus{INQUEUE, ASSIGNED, INPROGRESS}
+enum Status{INQUEUE, ASSIGNED, INPROGRESS}
 
 public class Task implements Comparable<Task>{
 	private String project;
 	private String description;
 	private String assignee;
 	private Priority priority;
-	private Staus staus;
+	private Status staus;
 	
-	public Task(String project, String description, String assignee, Priority priority, Staus staus) {
+	public Task(String project, String description, String assignee, Priority priority, Status staus) {
 		this.project = project;
 		this.description = description;
 		this.assignee = assignee;
@@ -22,7 +22,7 @@ public class Task implements Comparable<Task>{
 	}
 
 	public Task(String project, String description, String assignee, Priority priority) {
-		this(project, description, assignee, priority, assignee == null ? Staus.INQUEUE : Staus.ASSIGNED);
+		this(project, description, assignee, priority, assignee == null ? Status.INQUEUE : Status.ASSIGNED);
 	}
 
 	public Task(String project, String description, Priority priority) {
@@ -61,11 +61,11 @@ public class Task implements Comparable<Task>{
 		this.priority = priority;
 	}
 
-	public Staus getStaus() {
+	public Status getStaus() {
 		return staus;
 	}
 
-	public void setStaus(Staus staus) {
+	public void setStaus(Status staus) {
 		this.staus = staus;
 	}
 
