@@ -27,7 +27,7 @@ public class Main {
 		
 	}
 	
-	public static Set<Task> getUnion(Collection<Set> listOfTaskSet){
+	public static Set<Task> getUnion(Collection<Set<Task>> listOfTaskSet){
 		Set<Task> unionSet = new HashSet<>();
 		for (Set<Task> individualSet : listOfTaskSet) {
 			unionSet.addAll(individualSet);
